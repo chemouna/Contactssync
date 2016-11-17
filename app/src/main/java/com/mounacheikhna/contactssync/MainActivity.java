@@ -85,7 +85,7 @@ public class MainActivity extends Activity {
         b.putBoolean(ContentResolver.SYNC_EXTRAS_MANUAL, true);
         b.putBoolean(ContentResolver.SYNC_EXTRAS_EXPEDITED, true);
         ContentResolver.requestSync(
-            new Account(ACCOUNT, ACCOUNT_TYPE), // Sync account
+            GenericAccountService.GetAccount(ACCOUNT_TYPE), // Sync account
             //"com.goblob.contacts.contactssyncadapter",      // Content authority
             AUTHORITY,      // Content authority
             b);                                             // Extras
@@ -132,7 +132,6 @@ public class MainActivity extends Activity {
 
     private void checkPermissions() {
         Timber.tag("TEST").d("checkPermissions");
-        //TODO: display a message to the user explaining why these permission are needed
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {

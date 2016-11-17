@@ -6,6 +6,7 @@ import android.content.ContentProviderClient;
 import android.content.Context;
 import android.content.SyncResult;
 import android.os.Bundle;
+import timber.log.Timber;
 
 public class ContactsSyncAdapter extends AbstractThreadedSyncAdapter {
 
@@ -22,7 +23,7 @@ public class ContactsSyncAdapter extends AbstractThreadedSyncAdapter {
     public void onPerformSync(Account account, Bundle bundle, String s,
         ContentProviderClient contentProviderClient, SyncResult syncResult) {
         //TODO: here is where we do sync with a backend if there's one
-
+        Timber.tag("TEST").d("onPerformSync ");
     }
 
 }
