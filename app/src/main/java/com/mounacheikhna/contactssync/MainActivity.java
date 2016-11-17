@@ -23,7 +23,7 @@ public class MainActivity extends Activity {
     public static final String ACCOUNT = "com.mounacheikhna.contactssync.account";
     private static final String PREF_SETUP_COMPLETE = "setup_complete";
     //private static final long SYNC_FREQUENCY = 60 * 60;  // 15 mn (in seconds)
-    private static final long SYNC_FREQUENCY = 60 * 15;  // 1 mn - temp
+    private static final long SYNC_FREQUENCY = 60;  // 1 mn - temp
 
     private Account account;
 
