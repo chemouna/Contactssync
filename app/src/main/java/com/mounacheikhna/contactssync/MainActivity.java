@@ -2,12 +2,16 @@ package com.mounacheikhna.contactssync;
 
 import android.app.Activity;
 import android.content.ContentResolver;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.ContentObserver;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.ContactsContract;
+import android.provider.Settings;
 import android.util.Log;
 
 public class MainActivity extends Activity {
@@ -16,6 +20,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         //TODO: set contacts change here contacts_changes
 
@@ -62,4 +67,19 @@ public class MainActivity extends Activity {
             }
         }
     }
+
+    private void checkPermissions() {
+        //TODO: display a message to the user explaining why these permission are needed
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(new String[] {
+                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    android.Manifest.permission.READ_CONTACTS,
+                    android.Manifest.permission.READ_SYNC_STATS,
+                    android.Manifest.permission.WRITE_SYNC_SETTINGS
+                }, 100);
+            }
+        }
+    }
+
 }
