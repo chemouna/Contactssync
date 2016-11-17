@@ -18,7 +18,7 @@ public class MainActivity extends Activity {
 
     public static final String AUTHORITY = ContactsContract.AUTHORITY;
     public static final String ACCOUNT_TYPE = "com.mounacheikhna.contactssync";
-    public static final String ACCOUNT = "myaccount";
+    public static final String ACCOUNT = "com.mounacheikhna.contactssync.account";
 
     private Account account;
 
@@ -47,13 +47,8 @@ public class MainActivity extends Activity {
     }
 
     public static Account CreateSyncAccount(Context context) {
-        // Create the account type and default account
-        Account newAccount = new Account(
-            ACCOUNT, ACCOUNT_TYPE);
-        // Get an instance of the Android account manager
-        AccountManager accountManager =
-            (AccountManager) context.getSystemService(
-                ACCOUNT_SERVICE);
+        Account newAccount = new Account(ACCOUNT, ACCOUNT_TYPE);
+        AccountManager accountManager = (AccountManager) context.getSystemService(ACCOUNT_SERVICE);
         /*
          * Add the account and account type, no password or user data
          * If successful, return the Account object, otherwise report an error.

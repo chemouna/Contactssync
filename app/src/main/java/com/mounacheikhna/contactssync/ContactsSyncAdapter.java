@@ -22,6 +22,7 @@ public class ContactsSyncAdapter extends AbstractThreadedSyncAdapter {
     public void onPerformSync(Account account, Bundle bundle, String s,
         ContentProviderClient contentProviderClient, SyncResult syncResult) {
         //TODO: here is where we do sync with a backend if there's one
+
     }
 
 }
